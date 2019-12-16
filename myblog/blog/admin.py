@@ -15,7 +15,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
     search_fields = (
         'title',
-        'creator'
+        'text'
     )
 
     list_filter = (
@@ -25,6 +25,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
     readonly_fields = (
         'created_at',
+        'updated_at'
     )
 
 
