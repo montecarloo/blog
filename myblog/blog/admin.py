@@ -15,7 +15,8 @@ class BlogPostAdmin(admin.ModelAdmin):
 
     search_fields = (
         'title',
-        'text'
+        'text',
+        'creator__username'
     )
 
     list_filter = (
