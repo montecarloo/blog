@@ -5,10 +5,16 @@
     <title>My blog</title>
 </head>
 <body>
+{% for p in posts %}
 <dev>
     <h3>
-        {{ posts.title }}
+        <a href="{{p.id}}"> {{ p.title }} </a>
     </h3>
+    <p>
+        {{ p.overview }}
+    </p>
 </dev>
+_____________________________
+{% endfor %}
 </body>
 </html>

@@ -7,5 +7,12 @@ from .models import BlogPost
 def blog_view(request):
     querySet = BlogPost.objects.all()
 
-    return render(request, 'posts.html', context={'posts': querySet[0]})
+    return render(request, 'posts.html', context={'posts': querySet})
+
+
+def post_view(request, id):
+    querySet = BlogPost.objects.filter(id=id)
+
+    return render(request, 'postview.html', context={'post': querySet[0]})
+
 
