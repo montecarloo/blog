@@ -5,13 +5,24 @@
     <title>login</title>
 </head>
 <body>
+    {% if not user.is_authenticated %}
     <form method="post" action="{% url 'login_view' %}">
         {% csrf_token %}
         <label>username</label>
         <input type="text" name="username">
         <label>password</label>
         <input type="password" name="password">
+        <input type="hidden" name="action" value="login">
         <button type="submit">Login</button>
     </form>
+    {% else %}
+    <p>Already logged in as {{user.username}} </p>
+    <form method="post" action="{% url 'login_view' %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="logout">
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+
 </body>
 </html>
